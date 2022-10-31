@@ -11,7 +11,7 @@
       <i class="{{ $icon }} fa-fw fa-2x"></i>
     </div>
     <div class="flex-grow-1 ms-3">
-      {{ with .Inner }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+        {{ with .Inner }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 {{ $repo := ((.Get 0) | default "") }}
-{{ $token := $.Site.Params.api.gitlab.token }}
+{{ $token := $.Site.Data.api.gitlab.token }}
 {{ $url := "https://gitlab.com/api/v4" }}
 {{ $data := getJSON $url "/projects/" $repo "?access_token=" $token }}
 
@@ -26,26 +26,26 @@
                   <div class="col">
                     <i class="fas fa-info-circle fa-fw me-1"></i>
                     <a href="{{ $data.web_url }}/-/issues" target="_blank" rel="noopener nofollow">
-                      {{ $data.open_issues_count }}
+                        {{ $data.open_issues_count }}
                     </a>
                   </div>
                   <div class="col">
                     <i class="fas fa-star fa-fw me-1"></i>
                     <a href="{{ $data.web_url }}/-/starrers" target="_blank" rel="noopener nofollow">
-                      {{ $data.star_count }}
+                        {{ $data.star_count }}
                     </a>
                   </div>
                   <div class="col">
                     <i class="fas fa-code-branch fa-fw me-1"></i>
                     <a href="{{ $data.web_url }}/-/forks" target="_blank" rel="noopener nofollow">
-                      {{ $data.forks_count }}
+                        {{ $data.forks_count }}
                     </a>
                   </div>
                 </div>
               </li>
               <li class="list-group-item">
                 <i class="fas fa-calendar-plus fa-fw me-1"></i>
-                {{ dateFormat "2006/01/02 15:04:05 MST" $data.created_at }}
+                  {{ dateFormat "2006/01/02 15:04:05 MST" $data.created_at }}
               </li>
             </ul>
           </div>
